@@ -13,12 +13,12 @@ stages:
   displayName: "Sample Job for CD"
   jobs:
   - deployment: 'CDJob'
-    environment: 'muthuk-emptyenv'
     pool: 
       name: 'Hosted VS2017'
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - script: echo Hello, world!
-              displayName: 'Run a one-line CD script'
+    environment: 'muthuk-emptyenv'
+    strategy:
+     runOnce:
+      deploy:
+        steps:
+        - script: echo Hello, world!
+        displayName: 'Run a one-line CD script'
