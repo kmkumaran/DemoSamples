@@ -1,0 +1,24 @@
+stages:
+- stage: 'Build'
+  displayName: "Sample Job for CI"
+  jobs:
+  - job: 'CI job'
+    pool:
+      name: 'Hosted VS2017'
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Run a one-line CI script'
+
+- stage: 'Deploy'
+  displayName: "Sample Job for CD"
+  jobs:
+  - deployment: 'CD Job'
+    environment: 'muthuk-emptyenv'
+    pool: 
+      name: 'Hosted VS2017'
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - script: echo Hello, world!
+              displayName: 'Run a one-line CD script'
